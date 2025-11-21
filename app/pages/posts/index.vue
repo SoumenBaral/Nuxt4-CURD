@@ -1,8 +1,14 @@
 
 <script setup lang="ts">
+import Create from './create.vue';
+
     const postApi = usePosts();
-    const posts = ref(await postApi.getPosts());
+    const posts = useState("posts", () => []);
     console.log(posts);
+    // if posts array is empty, fetch from API
+    if (posts.value.length === 0) {
+    posts.value = await postApi.getPosts();
+    }
     
     const remove = async (id:number) =>{
         if(!confirm('Delete this post?'))return;
@@ -21,7 +27,6 @@
 
 <template>
     <h1 class="mt-8 text-center text-2xl text-blue-600 font-bold">All Posts</h1>
-
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         <div v-for="(post,index) in posts" :key="index" class=" border p-4 border-amber-200 bg-amber-50 rounded-2xl m-4 shadow-xl">
             <h2 ><strong class=" font-bold">Post Title :</strong>  {{ post.id }} . {{ post.title }}</h2>
