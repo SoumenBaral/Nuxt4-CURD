@@ -9,5 +9,11 @@ export default defineNuxtConfig({
     plugins: [
       tailwindcss()
     ]
+  },
+  runtimeConfig: {
+    public: {
+      baseURL: 'https://jsonplaceholder.typicode.com'
+    }
   }
+
 })

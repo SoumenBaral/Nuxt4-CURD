@@ -3,6 +3,6 @@
 </script>
 
 <template>
-    <h1>Hi Id number : {{ id }}</h1>
+    <h1>Hi Id number : {{id}}</h1>
 
 </template>
