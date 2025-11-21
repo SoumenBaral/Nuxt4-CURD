@@ -32,7 +32,8 @@ import Create from './create.vue';
             <h2 ><strong class=" font-bold">Post Title :</strong>  {{ post.id }} . {{ post.title }}</h2>
             <p> <strong class=" font-bold mb-6">Description :</strong> {{ post.body }}</p><br>
             <NuxtLink :to="`/posts/${post.id}`" class="text-white   bg-orange-600 font-bold p-2 shadow pointer-coarse: rounded-2xl  ">Post Details</NuxtLink>
-            <button class=" text-xl mx-2 bg-red-600 px-2 text-white rounded-full" @click="remove(post.id)">X</button>
+            <NuxtLink :to="`/edit/${post.id}`" class="text-white   bg-orange-600 font-bold p-2 shadow mx-2 pointer-coarse: rounded-2xl  ">edit</NuxtLink>
+            <button class=" text-xl mx-2 bg-red-700 px-2 text-white rounded-full" @click="remove(post.id)">X</button>
         </div>
     </div>
 </template>

@@ -61,11 +61,29 @@ export const usePosts = () =>{
             loading.value = false;
         }
     }
+    const updatePost = async (id:number ,data: any )=>{
+        loading.value = true;
+       try{
+         return await $fetch(`${base}/posts/${id}`,{
+            method: 'PUT',
+            body: data
+        })
+       }
+       catch(e:any){
+        error.value = e.message
+        return null;
+       }
+       finally{
+        loading.value = false
+       }
+        
+    }
 
     return{
         getPosts,
         getPost,
         deletePost,
-        createPost
+        createPost,
+        updatePost
     }
 }

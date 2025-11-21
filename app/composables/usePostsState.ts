@@ -1,3 +1,2 @@
-export const usePostsState = () =>{
+export const usePostsState = () =>
     useState("posts",()=>[])
-}
